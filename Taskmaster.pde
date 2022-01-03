@@ -4,7 +4,7 @@ ArrayList<Task> tasks = new ArrayList<Task>();
 
 PFont font_cabin;
 
-int currentScreen = 2;
+int currentScreen = 0;
 
 ArrayList<Screen> screens = new ArrayList<Screen>();
 
@@ -46,8 +46,8 @@ void draw () {
   if (currentScreen != 0) {
     rectMode(CORNER);fill(30, 200);noStroke();
     rect(0, 0, width, height);
-    drawScreen(currentScreen);
   }
+  drawScreen(currentScreen);
 }
 
 /*

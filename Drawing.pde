@@ -47,7 +47,8 @@ void drawDay (int day, int month, int year, int firstDayOfWeek, float dw, float 
   float tly = ctly + ((firstDayOfWeek + day - 1) / 7) * dh;
 
   // Draw the rectangle
-  stroke(60);noFill();strokeWeight(1);rect(tlx, tly, dw, dh);
+  if(currentScreen == 0 && mouseX >= tlx && mouseX <= tlx + dw && mouseY >= tly && mouseY <= tly + dh) fill(255,30); else noFill();
+  stroke(60);strokeWeight(1);rect(tlx, tly, dw, dh);
 
   // Draw the text for which day it is
   textSize(24);textFont(font_cabin);textAlign(LEFT, CENTER);fill(255);
@@ -75,15 +76,19 @@ void drawDay (int day, int month, int year, int firstDayOfWeek, float dw, float 
     }
     text(todayTasks.get(i).name, tlx + 5, tly + dh/2 + 5 + i * taskBoxHeight / 3);
   }
+  
+  if(mousePressed && currentScreen == 0 && mouseX >= tlx && mouseX <= tlx + dw && mouseY >= tly && mouseY <= tly + dh) {
+    currentScreen = 1;
+    screens.get(1).associatedDate = new Date(day, month, year); 
+  }
+  
 }
 
 
 
 // Draw a particular screen
 void drawScreen (int s) {
-  if (s == 0) return; // window 0 is the base calendar view
-  
-  Screen sc = screens.get(s);
-  
+  if(s == 0) return; // don't draw screen 0
+  Screen sc = screens.get(s);  
   drawScreen(sc);
 }

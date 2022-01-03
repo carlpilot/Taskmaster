@@ -5,6 +5,8 @@ class Screen {
 
   ArrayList<Button> buttons;
   
+  Date associatedDate = new Date(1,1,1);
+  
   public Screen (String name, int id) {
     this.name = name; this.id = id; 
   }
@@ -35,5 +37,6 @@ void drawScreen (Screen sc) {
   
   // Draw window title
   textAlign(CENTER, CENTER); fill(255); textSize(36);
-  text(sc.name, width/2, windowMargin + 30);
+  String name = sc.name.replace("{date}", sc.associatedDate.dispLong());
+  text(name, width/2, windowMargin + 30);
 }

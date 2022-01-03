@@ -1,10 +1,30 @@
 
+class UIText {
+  
+  String text;
+  float cx, cy;
+  int size;
+  int colour;
+  
+  public UIText (String text, float cx, float cy, int size, int colour) {
+    this.text = text; this.cx = cx; this.cy = cy; this.size = size; this.colour = colour;
+  }
+  
+  void draw () {
+    textAlign(CENTER, CENTER); textSize(size); fill(colour);
+    text(text, cx, cy);
+  }
+  
+}
+
 class Button {
 
   String text;
   float cx, cy, w, h;
   float tlx, tly;
   int screen;
+  
+  Date associatedDate;
 
   public Button (String text, float cx, float cy, float w, float h, int screen) {
     this.text = text;
