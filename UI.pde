@@ -1,12 +1,4 @@
 
-class Screen {
-  int id;
-  String name;
-
-  ArrayList<Button> buttons;
-}
-
-
 class Button {
 
   String text;
@@ -25,13 +17,8 @@ class Button {
     tly = cy - h/2;
   }
 
-  void mouseClicked () {
-
-    if (currentScreen != screen) return; // buttons on inactive screens do nothing
-
-    if (mouseX > tlx && mouseY > tly && mouseX <= tlx + w && mouseY <= tly + h) {
-      // Button pressed
-      print("Button pressed");
-    }
+  boolean pressed () {
+    if (currentScreen != screen) return false; // buttons on inactive screens do nothing
+    return (mouseX > tlx && mouseY > tly && mouseX <= tlx + w && mouseY <= tly + h);
   }
 }

@@ -4,13 +4,17 @@ ArrayList<Task> tasks = new ArrayList<Task>();
 
 PFont font_cabin;
 
-int currentScreen = 1;
+int currentScreen = 2;
+
+ArrayList<Screen> screens = new ArrayList<Screen>();
 
 
 void setup () {
   size(1024, 768);
 
   font_cabin = createFont("/fonts/Cabin-Regular.ttf", 24);
+  
+  initScreens();
 
   // Test code
   tasks.add(new Task("Example Task", 3, new Date(5, 1, 2022), new Date(3, 1, 2022), 0));
@@ -42,7 +46,7 @@ void draw () {
   if (currentScreen != 0) {
     rectMode(CORNER);fill(30, 200);noStroke();
     rect(0, 0, width, height);
-    drawWindow(currentScreen);
+    drawScreen(currentScreen);
   }
 }
 

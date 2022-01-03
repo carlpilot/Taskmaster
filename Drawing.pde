@@ -79,9 +79,11 @@ void drawDay (int day, int month, int year, int firstDayOfWeek, float dw, float 
 
 
 
-// Draw a window for the particular screen number
-void drawWindow (int s) {
+// Draw a particular screen
+void drawScreen (int s) {
   if (s == 0) return; // window 0 is the base calendar view
-  fill(30);stroke(255);strokeWeight(2);rectMode(CENTER);
-  rect(width/2, height/2, width - 2 * windowMargin, height - 2 * windowMargin);
+  
+  Screen sc = screens.get(s);
+  
+  drawScreen(sc);
 }
