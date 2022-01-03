@@ -20,6 +20,11 @@ class Screen {
   }
 }
 
+void switchScreen (int newScreen) {
+  screenToSwitchTo = newScreen;
+  // the actual switch occurs when the mouse is released by the mouseClicked function in Taskmaster.pde
+}
+
 void initScreens () {
   screens.add(new Screen("Screen 0", 0)); // no screen for index 0
   

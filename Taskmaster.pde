@@ -5,6 +5,7 @@ ArrayList<Task> tasks = new ArrayList<Task>();
 PFont font_cabin;
 
 int currentScreen = 0;
+int screenToSwitchTo = 0;
 
 ArrayList<Screen> screens = new ArrayList<Screen>();
 
@@ -50,10 +51,6 @@ void draw () {
   drawScreen(currentScreen);
 }
 
-/*
-void mouseClicked () {
-  for (int i = 0; i < buttons.size(); i++) {
-    buttons.get(i).mouseClicked();
-  }
+void mouseReleased () {
+  currentScreen = screenToSwitchTo; 
 }
-*/

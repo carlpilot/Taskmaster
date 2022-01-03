@@ -78,8 +78,8 @@ void drawDay (int day, int month, int year, int firstDayOfWeek, float dw, float 
   }
   
   if(mousePressed && currentScreen == 0 && mouseX >= tlx && mouseX <= tlx + dw && mouseY >= tly && mouseY <= tly + dh) {
-    currentScreen = 1;
     screens.get(1).associatedDate = new Date(day, month, year); 
+    switchScreen(1);
   }
   
 }
@@ -88,7 +88,11 @@ void drawDay (int day, int month, int year, int firstDayOfWeek, float dw, float 
 
 // Draw a particular screen
 void drawScreen (int s) {
+  
   if(s == 0) return; // don't draw screen 0
+  
+  if(mousePressed && currentScreen != 0 && (mouseX < windowMargin || mouseX > width - windowMargin || mouseY < windowMargin || mouseY > height - windowMargin)) switchScreen(0);
+  
   Screen sc = screens.get(s);  
   drawScreen(sc);
 }
